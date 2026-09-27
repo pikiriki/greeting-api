@@ -11,6 +11,11 @@ const server = http.createServer((req, res) => {
   const name = url.searchParams.get("name");
   console.log(name);
   
+  if (name === null || name === "") {
+    res.end("Please provide a name.");
+    return;
+  }
+
   const greeting = `Hello, ${name}!`;
   res.end(greeting);
 });
